@@ -23,9 +23,10 @@ jobs:
         run: dir
         
       - name: Create artifact directory
-        run: mkdir "artifact/PhysicsGame/"
+        run: mkdir artifact/PhysicsGame/
 
       - name: Copy the executable to the artifact directory
-        run: copy "C:\Users\haoshengl\Desktop\testeo-CD-CI-main\testeo-CD-CI-main\Build\PhysicsGame\Release\Win32" "artifact/PhysicsGame/"
+        run: copy .Build\PhysicsGame\Release\Win32\PhysicsGame.exe .artifact/PhysicsGame/
 
-    
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4.4.3
