@@ -12,10 +12,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
+        
       - name: Build
         run: msbuild .\PhysicsGame.sln /p:Configuration=Release
+        
       - name: Hello World
         run: dir
-     
+        
+      - name: Create artifact directory
+        run: mkdir "artifact/PhysicsGame/"
+
+      - name: Copy the executable to the artifact directory
+        run: copy "C:\Users\haoshengl\Desktop\testeo-CD-CI-main\testeo-CD-CI-main\Build\PhysicsGame\Release\Win32" "artifact/PhysicsGame/"
+
+    
